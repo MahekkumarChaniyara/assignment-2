@@ -78,6 +78,16 @@ function addButton(){
         localStorage.setItem("name",JSON.stringify(arraylist));
     }
     localStorage.setItem("count",count);
+    document.getElementById("add").style.display="block";
+    document.getElementById("addsave").style.display="none";
+    if(document.getElementsByTagName("button").length!=0){
+        var disnone=document.getElementsByTagName("button");
+        for(let i=0;i<disnone.length;i++){
+            disnone[i].style.display="clock";
+        }
+        //document.getElementsByTagName("button").style.display="none";
+    }
+
 }
 function onlyif(){
     count=Number(localStorage.getItem("count"));
@@ -99,6 +109,16 @@ function onlyif(){
                 localStorage.setItem("name",JSON.stringify(arraylist));
                 }
                 console.log(count);
+                localStorage.setItem("count",count);
+                document.getElementById("add").style.display="block";
+                document.getElementById("addsave").style.display="none";
+                if(document.getElementsByTagName("button").length!=0){
+                    var disnone=document.getElementsByTagName("button");
+                    for(let i=0;i<disnone.length;i++){
+                        disnone[i].style.display="clock";
+                    }
+                    //document.getElementsByTagName("button").style.display="none";
+                }
             }
     })
     
@@ -133,9 +153,18 @@ function del(delp){
 function update(up){
     var upx=localStorage.getItem("delcount");
     searchaddtext.value=`${arraylist[up.id-upx-1].name}`;
-    var oldtext=`${arraylist[up.id-upx-1].name}`;
     del(up);
+    document.getElementById("addsave").style.display="block"
+    document.getElementById("add").style.display="none";
+    if(document.getElementsByTagName("button").length!=0){
+        var disnone=document.getElementsByTagName("button");
+        for(let i=0;i<disnone.length;i++){
+            disnone[i].style.display="none";
+        }
+        //document.getElementsByTagName("button").style.display="none";
+    }
 
+    
 
 
 }
