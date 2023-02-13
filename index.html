@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+        <div style="display:flex">
+            <input id="searchtype" list="searchsuggetion" type="text" placeholder="What need to be done?" onfocus="onlyif()" oninput="searching(this)" required></input>
+            <datalist id="searchsuggetion"></datalist>
+            <input id="add" type="submit" onclick="addButton()" value="Add"></input>
+        </div>
+        <!-- <div id="search">
+            <div id="todo"  style="display:block">ToDo List</div>
+            <div id="todosee">Nothing To Show</div>
+        </div> -->
+        <div id="todo"  style="display:block">ToDo List</div>
+        <div id="todosee" >Nothing To Show</div>
+
+    <script src="index.js"></script>
+</body>
+</html>
