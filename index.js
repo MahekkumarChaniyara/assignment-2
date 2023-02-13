@@ -5,7 +5,7 @@ var count=0;
 var arraylist=[];
 var delcount=0;
 var c=0;
-
+var savetarget;
 
 // function addButton(){
 //     count++;
@@ -90,6 +90,22 @@ function addButton(){
 
 }
 
+function addsaveButton(){
+    var savedelcount=localStorage.getItem("delcount");
+    console.log(savedelcount);
+    console.log(savetarget.id);
+    arraylist=JSON.parse(localStorage.getItem("name"));
+    console.log(arraylist);
+    console.log(searchaddtext.value);
+    arraylist[savetarget.id-savedelcount-1].name=searchaddtext.value;
+    localStorage.setItem("name",JSON.stringify(arraylist));
+    searchaddtext.value="";
+    render(arraylist);
+    document.getElementById("addsave").style.display="none";
+    document.getElementById("add").style.display="block";
+    //savetarget.name
+}
+
 function onlyif(){
     count=Number(localStorage.getItem("count"));
     window.addEventListener("keyup",keys=(event)=>{
@@ -154,8 +170,9 @@ function del(delp){
 function update(up){
     var upx=localStorage.getItem("delcount");
     searchaddtext.value=`${arraylist[up.id-upx-1].name}`;
-    del(up);
-    document.getElementById("addsave").style.display="block"
+    //del(up);
+    savetarget=up;
+    document.getElementById("addsave").style.display="block";
     document.getElementById("add").style.display="none";
     if(document.getElementsByTagName("button").length!=0){
         var disnone=document.getElementsByTagName("button");
@@ -164,10 +181,6 @@ function update(up){
         }
         //document.getElementsByTagName("button").style.display="none";
     }
-
-    
-
-
 }
 
 function checkMy(chek){
