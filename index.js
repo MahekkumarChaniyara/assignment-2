@@ -4,7 +4,7 @@ var target=document.getElementById("todosee");
 var count=0;
 var arraylist=[];
 var delcount=0;
-
+var c=0;
 
 
 // function addButton(){
@@ -89,6 +89,7 @@ function addButton(){
     }
 
 }
+
 function onlyif(){
     count=Number(localStorage.getItem("count"));
     window.addEventListener("keyup",keys=(event)=>{
@@ -133,7 +134,7 @@ function render(todo){
     else{
         todo.forEach(function(x){  
             if(x.complete==true){
-                target.insertAdjacentHTML("beforeend",`<p style="text-decoration:line-through"><input class="tick" type="checkbox" id="${x.id}" onclick="checkMy(this)" checked></input>${x.name}<button class="right decor" id="${x.id}" onclick="del(this)">Delete</button><button class="right" id="${x.id}" onclick="update(this)">Update</button></p>`);    
+                target.insertAdjacentHTML("beforeend",`<p style="text-decoration:line-through;color:grey"><input class="tick" type="checkbox" id="${x.id}" onclick="checkMy(this)" checked></input>${x.name}<button class="right decor" id="${x.id}" onclick="del(this)">Delete</button><button class="right" id="${x.id}" onclick="update(this)">Update</button></p>`);    
             }else{
                 target.insertAdjacentHTML("beforeend",`<p><input class="tick" type="checkbox" id="${x.id}" onclick="checkMy(this)"></input>${x.name}<button class="right decor" id="${x.id}" onclick="del(this)">Delete</button><button class="right" id="${x.id}" onclick="update(this)">Update</button></p>`);
             }
@@ -195,6 +196,12 @@ function searching(searcch){
     render(arr);
 }
 
+// location.reload=reeload();
+
+// function reeload(){
+//     console.log("hello")
+//     addsaveButton();
+// }
 
 ///end
 
